@@ -6,5 +6,5 @@ addons:
 config_vars:
   PATH: local/bin:/usr/local/bin:/usr/bin:/bin
 default_process_types:
-  web: perl -Mlib=\$PWD/local/lib/perl5 ./local/bin/morbo  ./script/test_web --listen http://*:\$PORT
+  web: perl -Mlib=\$PWD/local/lib/perl5 ./script/app -m production -l http://*:\$PORT
 EOF
