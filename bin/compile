@@ -31,7 +31,7 @@ echo "-----> Installing Starman"
 cpanm Starman 2>&1 | indent
 
 if [ -d $BUILD_DIR/local ]; then
-  rm -rf $CACHE_DIR/local
+#  rm -rf $CACHE_DIR/local
   mkdir -p $CACHE_DIR
   cp -a $BUILD_DIR/local $CACHE_DIR/local
 fi
