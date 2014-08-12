@@ -26,7 +26,7 @@ if ! [ -e $BUILD_DIR/local/bin/cpanm ]; then
   curl -L --silent https://raw.github.com/miyagawa/cpanminus/master/cpanm | perl - App::cpanminus 2>&1 | indent
 fi
 
-sudo apt-get build-dep rrdtool
+apt-get build-dep rrdtool
 
 echo "-----> Installing dependencies"
 cpanm --installdeps . 2>&1 | indent
