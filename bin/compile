@@ -26,6 +26,8 @@ if ! [ -e $BUILD_DIR/local/bin/cpanm ]; then
   curl -L --silent https://raw.github.com/miyagawa/cpanminus/master/cpanm | perl - App::cpanminus 2>&1 | indent
 fi
 
+yum install cairo-devel pango-devel
+
 echo "-----> Installing dependencies"
 cpanm --installdeps . 2>&1 | indent
 
