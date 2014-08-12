@@ -29,6 +29,8 @@ fi
 echo "-----> Installing dependencies"
 cpanm --installdeps . 2>&1 | indent
 
+find /home/vcap/.cpanm/work -name "build.log" -print | xargs cat 
+
 echo "-----> Installing Starman"
 cpanm Starman 2>&1 | indent
 
