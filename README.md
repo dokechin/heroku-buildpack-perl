@@ -8,25 +8,42 @@ Usage
 
 Example usage:
 
-    $ ls
-    cpanfile
-    app.psgi
-    lib/
+    $ git clone https://github.com/OTRS/otrs.git
+    $ cd otrs
+    $ vi cpanfile
+        requires 'Archive::Tar';
+        requires 'Crypt::Eksblowfish::Bcrypt';
+        requires 'Crypt::SSLeay';
+        requires 'Date::Format';
+        requires 'DBI';
+        requires 'DBD::mysql';
+        requires 'Encode::HanExtra';
+        requires 'IO::Socket::SSL';
+        requires 'JSON::XS';
+        requires 'List::Util::XS';
+        requires 'LWP::UserAgent';
+        requires 'Mail::IMAPClient';
+        requires 'IO::Socket::SSL';
+        requires 'Net::DNS';
+        requires 'Net::LDAP';
+        requires 'Net::SSL';
+        requires 'PDF::API2';
+        requires 'Compress::Zlib';
+        requires 'Text::CSV_XS';
+        requires 'Time::HiRes';
+        requires 'XML::Parser';
+        requires 'YAML::XS';
 
-    $ cat cpanfile
-    requires 'Plack', '1.0000';
-    requires 'DBI', '1.6';
+    $ cp Kernel/Config.pm.dist Kernel/Config.pm
+    $ cp Kernel/Config/GenericAgent.pm.dist Kernel/Config/GenericAgent.pm
 
-    $ heroku create --stack cedar --buildpack https://github.com/miyagawa/heroku-buildpack-perl.git
+    Edit Config.pm to adjust your cloud env.
 
+    $ heroku create --stack otrs --buildpack https://github.com/dokechin/heroku-buildpack-otrs.git
     $ git push heroku master
-    ...
-    -----> Heroku receiving push
-    -----> Fetching custom buildpack
-    -----> Perl/PSGI app detected
-    -----> Installing dependencies
 
-The buildpack will detect that your app has an `app.psgi` in the root.
+    $ cf push otrs -b https://github.com/dokechin/heroku-buildpack-otrs.git
+
 
 Libraries
 ---------
